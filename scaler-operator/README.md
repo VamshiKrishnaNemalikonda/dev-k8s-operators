@@ -15,6 +15,36 @@ You’ll need a Kubernetes cluster to run against. You can use [KIND](https://si
 kubectl apply -f config/samples/
 ```
 
+Create Controller:
+
+```sh
+operator-sdk init --plugins go/v3 --domain vamshi.namilikonda-k8s --owner "Vamshi Namilikonda" --repo "github.com/VamshiKrishnaNemalikonda/scaler-operator"
+```
+
+Create API (CRD):
+
+```sh
+operator-sdk create api --kind Scalar --group api --version v1alpha1
+```
+
+Create Deployment:
+
+```sh
+kubectl create deployment --image=nginx
+```
+
+Create CR:
+
+```sh
+kubectl create -f config/samples/api_v1alpha1_scaler.yaml
+```
+
+Delete CR:
+
+```sh
+kubectl delete -f config/samples/api_v1alpha1_scaler.yaml
+```
+
 2. Build and push your image to the location specified by `IMG`:
 
 ```sh
