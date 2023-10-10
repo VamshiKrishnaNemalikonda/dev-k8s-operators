@@ -1,0 +1,18 @@
+apiVersion: api.vamshi.namilikonda-k8s/v1alpha1
+kind: Scaler
+metadata:
+  labels:
+    app.kubernetes.io/name: scaler
+    app.kubernetes.io/instance: scaler-sample
+    app.kubernetes.io/part-of: dev-k8s-operators
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: dev-k8s-operators
+  name: scaler-sample
+spec:
+  start : 5 #AM IST
+  end : 22  #PM IST
+  replicas : 5
+  deployments: 
+    - name: nginx
+      namespace: default
+
